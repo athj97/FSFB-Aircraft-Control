@@ -6,6 +6,7 @@ A = [-0.313 56.7 0; -0.0139 -0.426 0; 0 56.7 0];
 B = [0.232; 0.0203; 0];
 C = [0 0 1];
 D = 0;
+
 %% Controller
 K = acker(A,B,[-1; -.2; -.3]);
 sys1 = ss(A-B*K,B,C,D)
@@ -18,6 +19,7 @@ sys2 = ss(A-B*K,B*Nbar,C,D) %state space with Nbar scaling
 hold on
 step(sys2,t)
 legend('u=r-Kx','u=Nbar*r-Kx','Location','NorthEast')
+
 %% Estimator
 x0 = [.1; .1; .2];
 xe = [0; 0; 0];
